@@ -12,6 +12,4 @@ node_js:
   - 7.10
 before_install:
   - npm i -g yarn
-test:
-  - yarn test
 install: yarn install

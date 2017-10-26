@@ -49,7 +49,6 @@ class Search extends React.Component {
   }
 
   render() {
-    console.log('render', this.props.images);
     return (<div className="search" >
       <h3 className="search-title">Search Image On Google</h3>
       <div className="pt-input-group .modifier pt-large search-field">
@@ -64,7 +63,11 @@ class Search extends React.Component {
           onKeyPress={this.keyPressHandle.bind(this)}
         />
       </div>
-      <ItemList images={this.props.images.images} selectImage={this.selectImage.bind(this)} />
+      {
+        this.props.reachLimit &&
+          <div className="daily-limit"> Search API has reached daily limit. The current data shown below is mocked. </div>
+      }
+      <ItemList images={this.props.images} selectImage={this.selectImage.bind(this)} />
       <Button className="pt-intent-primary" onClick={() => this.props.queryImages(this.state.searchText)}>Search</Button>
       <Button className="pt-intent-warning" onClick={() => this.props.close()}>Close</Button>
     </div>);
@@ -73,11 +76,11 @@ class Search extends React.Component {
 }
 
 Search.propTypes = {
-  images: React.PropTypes.object,
+  images: React.PropTypes.array,
 };
 
 Search.defaultProps = {
-  images: {},
+  images: [],
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -93,7 +96,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    images: state.images,
+    images: state.images.images,
+    reachLimit: state.images.reachLimit,
   };
 };
 

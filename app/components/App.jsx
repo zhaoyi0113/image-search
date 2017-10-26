@@ -8,7 +8,6 @@ import MyCanvas from './MyCanvas.jsx';
 const App = () => {
   return (
     <div className="root">
-      helo
       <MyCanvas />
     </div>
   );

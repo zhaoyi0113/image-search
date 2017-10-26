@@ -10,10 +10,13 @@ const queryImage = (state, action) => {
   console.log('reducer:', action);
   switch (action.type) {
     case actions.QUERY_IMAGES:
-      const images = action.images;
+      let images = action.images;
       return { ...state, images };
     case actions.CLEAR_SEARCH_IMAGES:
       return { ...state, images: {} };
+    case actions.REACH_SEARCH_LIMIT:
+      images = action.images;
+      return { ...state, images, reachLimit: true };
     default:
       return initState;
   }

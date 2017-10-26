@@ -53,7 +53,7 @@ class MyCanvas extends React.Component {
   render() {
     console.log('my canvas');
     return (
-      <div>
+      <div className="search-wrapper">
         <Dialog className="search-dialog" isOpen={this.state.searchOpen}>
           <Search close={this.closeSearchDialog.bind(this)} drawImage={this.drawImage.bind(this)} />
         </Dialog>
