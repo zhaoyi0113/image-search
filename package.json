@@ -1,7 +1,7 @@
 {
-  "name": "react-webpack-boilerplate",
+  "name": "image-search",
   "version": "2.0.0",
-  "description": "Minimalistic ES6 React boilerplate",
+  "description": "Image Search",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -14,7 +14,7 @@
     "precommit": "cross-env npm run lint && npm test",
     "prepush": "cross-env npm run lint && npm test"
   },
-  "author": "Kliment Petrov <kleopetroff@gmail.com>",
+  "author": "Yi Zhao <zhaoyi0113@gmail.com>",
   "license": "MIT",
   "jest": {
     "setupFiles": [
