@@ -10,7 +10,6 @@ const App = () => {
     <div className="root">
       helo
       <MyCanvas />
-      <Search />
     </div>
   );
 };
