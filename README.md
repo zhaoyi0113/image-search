@@ -11,3 +11,9 @@ This application is managed by `webpack2` and `yarn` is a recommanded node cli c
 
 If you launch the project successfully, you can open browser to access `http://localhost:8080`. Click anywhere on this page and search the images from the popup dialog. The image will be inserted in the web page when you click on the search result list.
 
+## Project Structure
+
+ - `app/actions`  it defines actions used to query restful API
+ - `app/reducers`   the data received from restful will be reduced to store states
+ - `app/components`   react UI components are defined here
+ - `app/assets`    style file
