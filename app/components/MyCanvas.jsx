@@ -18,7 +18,6 @@ class MyCanvas extends React.Component {
 
   getMousePosition(evt) {
     const rect = this.context.getBoundingClientRect();
-    console.log('rect', rect);
     const scaleX = this.context.width / rect.width;
     const scaleY = this.context.height / rect.height;
     return {
@@ -37,7 +36,6 @@ class MyCanvas extends React.Component {
     ctx.clearRect(0, 0, this.context.width, this.context.height);
     const image = new Image();
     image.onload = () => {
-      console.log('loaded image', image.width, image.height);
       ctx.drawImage(image, this.state.mousePos.x, this.state.mousePos.y, 100, 100);
     };
     image.src = imageUrl;
@@ -46,12 +44,10 @@ class MyCanvas extends React.Component {
 
   handleClick(e) {
     const mousePos = this.getMousePosition(e);
-    console.log('mouse position ', mousePos);
-    console.log('canvas ', e.offsetX, e.clientX);
     this.setState({ searchOpen: !this.state.searchOpen, mousePos });
   }
+
   render() {
-    console.log('my canvas');
     return (
       <div className="search-wrapper">
         <Dialog className="search-dialog" isOpen={this.state.searchOpen}>
