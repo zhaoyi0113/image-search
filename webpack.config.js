@@ -40,32 +40,71 @@ const config = {
     {
       test: /\.(jsx?)$/,
       loaders: [
-          'babel-loader',
-        ],
+        'babel-loader',
+      ],
       exclude: /node_modules/,
     },
     {
-      test: /\.scss$/,
-      exclude: /node_modules/,
-      use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader',
-            {
-              loader: 'sass-loader',
-              query: {
-                sourceMap: false,
-              },
-            },
-          ],
-          publicPath: '../',
-        }),
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'],
     },
-      { test: /\.(png|jpg|gif)$/, use: 'url-loader?limit=15000&name=images/[name].[ext]' },
-      { test: /\.eot(\?v=\d+.\d+.\d+)?$/, use: 'file-loader?&name=fonts/[name].[ext]' },
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff&name=fonts/[name].[ext]' },
-      { test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/, use: 'url-loader?limit=10000&mimetype=application/octet-stream&name=fonts/[name].[ext]' },
-      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=image/svg+xml&name=images/[name].[ext]' },
+    {
+      test: /\.scss$/,
+      // exclude: /node_modules/,
+      // use: ExtractTextPlugin.extract({
+      //   fallback: 'style-loader',
+      //   use: [
+      //       'css-loader',
+      //       {
+      //         loader: 'sass-loader',
+      //         query: {
+      //           sourceMap: false,
+      //         },
+      //       },
+      //     ],
+      //   publicPath: '../',
+      // }),
+      use: [
+        {
+          loader: 'style-loader',
+        },
+        {
+          loader: 'css-loader',
+          options: {
+            sourceMap: true,
+          },
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true,
+          },
+        },
+      ],
+    },
+    { test: /\.(png|jpg|gif)$/, use: 'url-loader?limit=15000&name=images/[name].[ext]' },
+    {
+      test: /\.(eot|ttf)(\?.*$|$)/,
+      use: {
+        loader: 'file-loader',
+        options: {
+          name: 'fonts/[hash].[ext]',
+        },
+      },
+    },
+    { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      use: {
+        loader: 'url-loader',
+        options: { limit: 10000, mimetype: 'application/font-woff', name: 'fonts/[name].[ext]' },
+      },
+    },
+    { test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/,
+      use: {
+        loader: 'url-loader',
+        options: { limit: 10000, mimetype: 'application/octet-stream', name: 'fonts/[name].[ext]' },
+      },
+    },
+    { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=image/svg+xml&name=images/[name].[ext]' },
     ],
   },
 

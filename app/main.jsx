@@ -5,6 +5,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
+import '@blueprintjs/core/dist/blueprint.css';
 
 import reducers from './reducers';
 import Root from './config/Root.jsx';
