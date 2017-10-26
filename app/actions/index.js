@@ -1,10 +1,17 @@
 import axios from 'axios';
 
-const apiKey = 'AIzaSyD8rLjUOQuVNkwVYRxclpk1Z1i8auijj1M';
-const cx = '015923670062127816633:npuitytcpqy';
+// const apiKey = 'AIzaSyD8rLjUOQuVNkwVYRxclpk1Z1i8auijj1M';
+// const cx = '015923670062127816633:npuitytcpqy';
+const cx = '015923670062127816633:hagxjre8hfs';
+const apiKey = 'AIzaSyC9MSSL5xUAXv2GY-EcI59QNeDWGjCidow';
 
 const QUERY_IMAGES = 'QUERY_IMAGES';
 
+/**
+ * send query to google search engine
+ *
+ * @param {*} query
+ */
 const queryImages = (query) => {
   console.log('query images ', query);
   return (dispatch) => {

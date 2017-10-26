@@ -6,7 +6,7 @@ import actions from '../actions';
 class Search extends React.Component {
 
   componentDidMount() {
-    this.props.queryImages('images');
+    // this.props.queryImages('images');
   }
 
   render() {
