@@ -7,7 +7,6 @@ const queryImage = (state, action) => {
   if (typeof state === 'undefined') {
     return {};
   }
-  console.log('reducer:', action);
   switch (action.type) {
     case actions.QUERY_IMAGES:
       let images = action.images;

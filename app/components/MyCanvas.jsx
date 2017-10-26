@@ -32,11 +32,12 @@ class MyCanvas extends React.Component {
 
   drawImage(imageUrl) {
     const ctx = this.context.getContext('2d');
-    const root = document.getElementById('root');
-    ctx.clearRect(0, 0, this.context.width, this.context.height);
     const image = new Image();
     image.onload = () => {
-      ctx.drawImage(image, this.state.mousePos.x, this.state.mousePos.y, 100, 100);
+      ctx.imageSmoothingEnabled = false;
+      ctx.clearRect(0, 0, this.context.width, this.context.height);
+      ctx.drawImage(image, this.state.mousePos.x, this.state.mousePos.y,
+        50, 50);
     };
     image.src = imageUrl;
     this.closeSearchDialog();

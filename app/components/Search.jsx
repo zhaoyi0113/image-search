@@ -12,7 +12,7 @@ const SearchItem = ({ item, selectImage }) => {
 };
 
 const ItemList = ({ images, selectImage }) => {
-  if (!images || images.constructor !== Array) {
+  if (!images || images.constructor !== Array || images.length === 0) {
     return <div className="item-list">No Content</div>;
   }
   return (<div className="item-list" >
@@ -74,10 +74,6 @@ class Search extends React.Component {
   }
 
 }
-
-Search.propTypes = {
-  images: React.PropTypes.array,
-};
 
 Search.defaultProps = {
   images: [],
